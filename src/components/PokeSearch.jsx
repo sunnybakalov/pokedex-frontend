@@ -1,13 +1,14 @@
 import React from 'react';
-import { getPokemon } from '../lib/client';
+import { fetchAll, searchPokemon } from '../lib/client';
 
-const searchPokemon = async () => await getPokemon("pikachu");
+// const search = async () => await searchPokemon("pikachu");
+const search = async () => await fetchAll();
 
 const PokeSearch = () => {
   return (
     <>
       <div>
-        <button onClick={searchPokemon}>
+        <button onClick={search}>
           Click Me
         </button>
       </div>

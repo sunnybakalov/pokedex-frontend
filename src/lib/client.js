@@ -21,16 +21,25 @@ const post = async (endpoint, payload) => {
     return response.json();
   } catch (err) {
     return err;
-  }
+  };
 };
 
-export const getPokemon = async (name) => {
-  console.log("NAME", name)
+export const searchPokemon = async (name) => {
   try {
-    const response = await get(`/get-pokemon?name=${name}`)
-    console.log("RES", response)
+    const response = await get(`/search-pokemon?name=${name}`);
+    console.log("RES", response);
     return response;
   } catch (err) {
     return { error: err };
-  }
-}
+  };
+};
+
+export const fetchAll = async () => {
+  try {
+    const response = await get(`/fetch-all`);
+    console.log("RES", response);
+    return response;  
+  } catch (err) {
+    return { error: err };
+  };
+};
