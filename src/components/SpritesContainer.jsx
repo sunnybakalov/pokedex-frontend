@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
-import { PokemonCard, SpriteCard } from './styles';
-import { fetchAll } from '../lib/client';
+import { SpriteCard } from './styles';
+import { fetchAll, searchPokemon } from '../lib/client';
+import PokemonCard from './PokemonCard';
 
 // const allPokemon = async () => await fetchAll;
+const pikachu = async () => await searchPokemon("pikachu");
 
 const renderCards = async () => {
   const allPokemon = await fetchAll();
   
-  return allPokemon.map(pokemon => (
-      <div>
-        <div>
-          <h3>{pokemon.name}</h3>
-          <p>{pokemon.types}</p>
-          <span>Weight: {pokemon.weight} | Height: {pokemon.height}</span>
-          <text>Moves: {pokemon.moves}</text>
-        </div>
-      </div>
-  ))
+  return (allPokemon.map(pokemon => (
+      <PokemonCard 
+        name={pokemon.name}
+        height={pokemon.height}
+        width={pokemon.width}
+        types={pokemon.types}
+      />
+  )))
 }
 
 const SpritesContainer = () => {
   return (
-    <div>
-      {renderCards()}
-    </div>
+    <>
+      <div>
+        {renderCards}
+      </div>
+    </>
   )
 };
 
