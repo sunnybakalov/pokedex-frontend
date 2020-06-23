@@ -37,7 +37,7 @@ export const searchPokemon = async (name) => {
 export const fetchAll = async () => {
   try {
     const response = await get(`/fetch-all`);
-    console.log("RES", response);
+    // console.log("RES", response);
     return response;  
   } catch (err) {
     return { error: err };
