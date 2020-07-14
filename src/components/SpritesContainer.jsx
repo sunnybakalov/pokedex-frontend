@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SpriteCard } from './styles';
 import { fetchAll, searchPokemon } from '../lib/client';
 import PokemonCard from './PokemonCard';
 
-// const allPokemon = async () => await fetchAll;
-const pikachu = async () => await searchPokemon("pikachu");
+function SpritesContainer() {
 
-const renderCards = async () => {
-  const allPokemon = await fetchAll();
-  
-  return (allPokemon.map(pokemon => (
-      <PokemonCard 
-        name={pokemon.name}
-        height={pokemon.height}
-        width={pokemon.width}
-        types={pokemon.types}
-      />
-  )))
-}
+  const [pokemon, setPokemon] = useState([]);
 
-const SpritesContainer = () => {
+  useEffect(() => {
+    async function fetch() {
+      const allPokemon = await fetchAll();
+      console.log("ALL POKEMON", allPokemon)
+      setPokemon(allPokemon);
+    };
+    fetch()
+  }, []);
+
+  const renderCards = () => {
+    return (pokemon.map(poke => (
+        <PokemonCard 
+          name={poke.name}
+          height={poke.height}
+          width={poke.width}
+          types={poke.types}
+        />
+    )))
+  }
+
   return (
     <>
-      <div>
-        {renderCards}
-      </div>
+      {renderCards()}
     </>
   )
 };
