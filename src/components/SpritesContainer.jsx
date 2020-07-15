@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { SpriteCard, PokeContainer } from './styles';
-import { fetchAll, searchPokemon } from '../lib/client';
+import { PokeContainer } from './styles';
+import { fetchAll } from '../lib/client';
 import PokemonCard from './PokemonCard';
 
 function SpritesContainer() {
@@ -22,7 +22,7 @@ function SpritesContainer() {
           <PokemonCard
             name={poke.name}
             height={poke.height}
-            width={poke.width}
+            weight={poke.weight}
             types={poke.types}
           />
         ))}

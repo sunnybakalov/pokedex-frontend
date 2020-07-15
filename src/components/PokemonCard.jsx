@@ -1,20 +1,23 @@
 import React from 'react';
+import { ContainerCard } from './styles';
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 const PokemonCard = (props) => {
   return (
-    <div>
-      <h3>{props.name}</h3>
-      <img src="https://via.placeholder.com/150x240" alt="pokemon" />
-      <span>{`HT: ${props.height} | WT: ${props.weight}`}</span>
+    <ContainerCard>
+      <h3 id="name">{props.name.capitalize()}</h3>
+      <img src="https://via.placeholder.com/240x240" alt="pokemon" />
+      <br/>
+      <span id="measurements">{`HT: ${props.height} | WT: ${props.weight}`}</span>
       <div>
-        <span>
-          {/* {props.types.map(type => {
-            <span>{type}</span>
-          })} */}
-          {props.types}
-        </span>
+        {props.types.map(type => {
+          return <span id="types">{type}</span>
+        })}
       </div>
-    </div>
+    </ContainerCard>
   );
 };
 

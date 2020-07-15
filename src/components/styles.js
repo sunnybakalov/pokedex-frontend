@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const PokemonCard = styled.div`
-
-`;
-
-export const SpriteCard = styled.div`
-  
+export const ContainerCard = styled.div`
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+  text-align: center;
 `;
 
 export const PokeContainer = styled.div`
