@@ -9,7 +9,9 @@ const PokemonCard = (props) => {
   return (
     <ContainerCard>
       <h3 id="name">{props.name.capitalize()}</h3>
-      <img src="https://via.placeholder.com/240x240" alt="pokemon" />
+      <img src={require(`../images/001.png`)} alt="pokemon" />
+      {/* <img src={require(`../../public/images/${props.number}.png`)} alt="pokemon" /> */}
+      {/* <img src="%PUBLIC_URL%/images/001.png" alt="pokemon" /> */}
       <br/>
       <span id="measurements">{`HT: ${props.height} | WT: ${props.weight}`}</span>
       <div>

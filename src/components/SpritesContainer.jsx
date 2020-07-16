@@ -24,6 +24,7 @@ function SpritesContainer() {
             height={poke.height}
             weight={poke.weight}
             types={poke.types}
+            number={poke.number}
           />
         ))}
       </PokeContainer>
