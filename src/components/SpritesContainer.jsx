@@ -8,7 +8,8 @@ function SpritesContainer() {
 
   useEffect(() => {
     async function fetch() {
-      const allPokemon = await fetchAll();
+      let allPokemon = await fetchAll();
+      allPokemon = allPokemon.sort((pokemon1, pokemon2) => pokemon1.number > pokemon2.number ? 1 : -1);
       console.log('ALL POKEMON', allPokemon);
       setPokemon(allPokemon);
     }
