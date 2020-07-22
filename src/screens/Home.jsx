@@ -6,23 +6,35 @@ import { PokeContainer } from '../components/styles';
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
+  const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   useEffect(() => {
     async function fetch() {
-      let allPokemon = await fetchAll();
-      allPokemon = allPokemon.sort((pokemon1, pokemon2) => pokemon1.number > pokemon2.number ? 1 : -1);
-      setPokemon(allPokemon);
+      return await fetchAll();
+      // let allPokemon = await fetchAll();
+      // allPokemon = allPokemon.sort((pokemon1, pokemon2) => pokemon1.number > pokemon2.number ? 1 : -1);
+      // setPokemon(allPokemon);
+      // return allPokemon;
     }
-    fetch();
-  }, []);
+    fetch().then(res => {
+      const allPokemon = res.sort((pokemon1, pokemon2) => pokemon1.number > pokemon2.number ? 1 : -1);
+      setPokemon(allPokemon);
+      // const filteredPokemon = res.filter(poke => {
+      //   return poke.toLowerCase().includes(searchedPokemon);
+      // });
+      // setSearchedPokemon(filteredPokemon);
+    })
+  }, [searchedPokemon]);
 
-  const searchPokemon = (e) => {
-    console.log("EVENT", e)
+  function searchPokemon(e) {
+    // console.log("EVENT", e.target)
     const filteredPokemon = pokemon.filter(poke => {
-      return poke.toLowerCase().includes(e.target.value.toLowerCase());
+      console.log("Poke", poke)
+      return poke.name.includes(e.target.value.toLowerCase());
     });
+    setPokemon(filteredPokemon)
     // console.log("FILTERED", filteredPokemon)
-    setPokemon(filteredPokemon);
+    // setPokemon(filteredPokemon);
   };
 
   const renderCards = () => {
@@ -43,7 +55,7 @@ function Home() {
 
   return (
     <div>
-      <SearchBar onChange={e => searchPokemon(e)}/>
+      <SearchBar onChange={e => searchPokemon(e)} value={searchedPokemon} />
       <div>
         {renderCards()}
       </div>
