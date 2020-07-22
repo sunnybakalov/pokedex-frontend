@@ -5,6 +5,11 @@ export const ContainerCard = styled.div`
   padding: 5px;
   border: 1px solid grey;
   text-align: center;
+
+  img {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 export const PokeContainer = styled.div`

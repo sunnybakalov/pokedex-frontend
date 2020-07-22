@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import SpritesContainer from './components/SpritesContainer';
+import Home from './screens/Home';
 
 function App() {
   return (
     <div className="App">
-      <SpritesContainer />
-      {/* <SearchBar /> */}
+      <Home />
     </div>
   );
 }
