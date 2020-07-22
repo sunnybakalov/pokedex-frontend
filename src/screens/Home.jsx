@@ -6,7 +6,6 @@ import { PokeContainer } from '../components/styles';
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetch() {
@@ -17,12 +16,13 @@ function Home() {
     fetch();
   }, []);
 
-  const searchPokemon = e => {
+  const searchPokemon = (e) => {
+    console.log("EVENT", e)
     const filteredPokemon = pokemon.filter(poke => {
       return poke.toLowerCase().includes(e.target.value.toLowerCase());
     });
+    // console.log("FILTERED", filteredPokemon)
     setPokemon(filteredPokemon);
-    setSearch(e.target.value);
   };
 
   const renderCards = () => {
@@ -43,7 +43,7 @@ function Home() {
 
   return (
     <div>
-      <SearchBar onChange={e => searchPokemon(e)} value={search}/>
+      <SearchBar onChange={e => searchPokemon(e)}/>
       <div>
         {renderCards()}
       </div>
