@@ -19,6 +19,8 @@ const SearchBar = (props) => {
         placeholder="Search for Pokemon"
         onChange={props.onChange}
         value={props.value}
+        onKeyUp={props.onKeyUp}
+        onKeyDown={props.onKeyUp}
       />
     </div>
   )
