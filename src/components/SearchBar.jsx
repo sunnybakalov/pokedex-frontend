@@ -20,7 +20,6 @@ const SearchBar = (props) => {
         onChange={props.onChange}
         value={props.value}
         onKeyUp={props.onKeyUp}
-        onKeyDown={props.onKeyUp}
       />
     </div>
   )
