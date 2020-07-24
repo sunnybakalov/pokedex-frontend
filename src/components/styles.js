@@ -7,8 +7,13 @@ export const ContainerCard = styled.div`
   text-align: center;
 
   img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+  }
+
+  &:hover {
+    transition: all .4s ease-in-out;
+    transform: scale(1.1);
   }
 `;
 
@@ -17,5 +22,5 @@ export const PokeContainer = styled.div`
   flex-wrap: wrap;
   width: 80%;
   justify-content: center;
-  margin: auto;
+  margin: 35px auto 0 auto;
 `;
