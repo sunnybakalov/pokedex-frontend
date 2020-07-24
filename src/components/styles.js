@@ -5,6 +5,7 @@ export const ContainerCard = styled.div`
   padding: 5px;
   border: 1px solid grey;
   text-align: center;
+  background-color: ghostwhite;
 
   img {
     width: 250px;
@@ -14,6 +15,7 @@ export const ContainerCard = styled.div`
   &:hover {
     transition: all .4s ease-in-out;
     transform: scale(1.1);
+    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.75);
   }
 `;
 

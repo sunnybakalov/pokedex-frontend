@@ -8,7 +8,7 @@ function Home() {
   const [pokemon, setPokemon] = useState([]);
   const [searchedPokemon, setSearchedPokemon] = useState('');
   const [showPokemon, setShowPokemon] = useState([]);
-  const [showScroll, setShowScroll] = useState([]);
+  const [showScroll, setShowScroll] = useState(false);
 
   window.addEventListener('scroll', checkScrollToTop);
 
