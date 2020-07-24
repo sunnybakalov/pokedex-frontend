@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAll } from '../lib/client';
 import PokemonCard from '../components/PokemonCard';
-import SearchBar from '../components/SearchBar';
 import { PokeContainer } from '../components/styles';
+import { NavBar } from './styles';
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
@@ -53,12 +53,14 @@ function Home() {
 
   return (
     <div>
-      <input
-        onChange={(e) => onKeyUp(e)}
-        value={searchedPokemon}
-        onKeyUp={(e) => onKeyUp(e)}
-        onKeyDown={(e) => onKeyUp(e)}
-      />
+      <NavBar>
+        <input
+          onChange={(e) => onKeyUp(e)}
+          value={searchedPokemon}
+          onKeyUp={(e) => onKeyUp(e)}
+          onKeyDown={(e) => onKeyUp(e)}
+        />
+      </NavBar>
       <div>{renderCards()}</div>
     </div>
   );
