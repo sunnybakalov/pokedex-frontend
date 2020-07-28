@@ -8,15 +8,16 @@ String.prototype.capitalize = function() {
 const PokemonCard = (props) => {
   return (
     <ContainerCard>
-      <h3 id="name">{props.name.capitalize()}</h3>
       <img src={require(`../images/${props.number}.png`)} alt="pokemon" />
-      <br/>
-      {/* <span id="measurements">{`HT: ${props.height} | WT: ${props.weight}`}</span> */}
-      {/* <div>
+      <div>
+        <p id="number">{`#${props.number}`}</p>
+        <h5 id="name">{props.name.capitalize()}</h5>
+      </div>
+      <div id="typesDiv">
         {props.types.map(type => {
-          return <span id="types">{type}</span>
+          return <p id="types">{type}</p>
         })}
-      </div> */}
+      </div>
     </ContainerCard>
   );
 };
