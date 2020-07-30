@@ -27,7 +27,7 @@ const PokemonCard = (props) => {
       </div>
       <div id="typesDiv">
         {props.types.map(type => {
-          return <p id="types">{type}</p>
+          return <p id="types" type={type}>{type}</p>
         })}
       </div>
     </ContainerCard>
