@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const NavBar = styled.div`
   overflow: hidden;
-  background-color: #333;
+  background-color: #313131;
   position: fixed;
   top: 0;
   width: 100%;
+  height: 180px;
 `;
 
 export const ScrollButtonDiv = styled.div`

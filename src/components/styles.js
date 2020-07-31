@@ -88,6 +88,7 @@ export const ContainerCard = styled.div`
     text-transform: none;
     font-size: 11px;
     text-align: center;
+    background-color: green;
     background-color: ${props => getColor(props)};
   }
 
@@ -103,5 +104,5 @@ export const PokeContainer = styled.div`
   flex-wrap: wrap;
   width: 80%;
   justify-content: center;
-  margin: 35px auto 0 auto;
+  margin: 235px auto 0 auto;
 `;

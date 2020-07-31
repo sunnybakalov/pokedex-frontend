@@ -75,12 +75,6 @@ function Home() {
           onKeyUp={(e) => onKeyUp(e)}
           onKeyDown={(e) => onKeyUp(e)}
         />
-        {/* This could say "Kanto" */}
-        {/* This could say "Shinnoh" */}
-        {/* This could say "Hoenn" */}
-        {/* On click, have the app scroll down or just */}
-        {/* narrow down the Pokemon to the region that */}
-        {/* was clicked on */}
       </NavBar>
       <div>{renderCards()}</div>
       <ScrollButtonDiv>
