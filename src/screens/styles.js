@@ -29,3 +29,22 @@ export const ScrollButtonDiv = styled.div`
     opacity: 1;
   }
 `;
+
+export const SurpriseMeButton = styled.a`
+  float: left;
+  margin-right: -100%;
+  width: 85.49%;
+  margin-left: 7.2525%;
+  clear: both;
+  margin-top: 1em;
+  background-color: #30a7d7;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 105%;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: none;
+  font-family: "Flexo-Demi",arial,sans-serif;
+`;

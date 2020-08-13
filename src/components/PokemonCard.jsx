@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContainerCard } from './styles';
+import { ContainerCard, Types } from './styles';
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -27,6 +27,8 @@ const PokemonCard = (props) => {
       </div>
       <div id="typesDiv">
         {props.types.map(type => {
+          console.log("TYPE", type)
+          // return <Types type={type}>{type}</Types>
           return <p id="types" type={type}>{type}</p>
         })}
       </div>

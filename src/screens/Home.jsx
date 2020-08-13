@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchAll } from '../lib/client';
 import PokemonCard from '../components/PokemonCard';
 import { PokeContainer } from '../components/styles';
-import { NavBar, ScrollButtonDiv } from './styles';
+import { NavBar, ScrollButtonDiv, SurpriseMeButton } from './styles';
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
@@ -76,6 +76,11 @@ function Home() {
           onKeyDown={(e) => onKeyUp(e)}
         />
       </NavBar>
+      <div>
+        <SurpriseMeButton>
+          Surprise me!
+        </SurpriseMeButton>
+      </div>
       <div>{renderCards()}</div>
       <ScrollButtonDiv>
         <img
