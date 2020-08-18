@@ -7,6 +7,24 @@ export const NavBar = styled.div`
   top: 0;
   width: 100%;
   height: 180px;
+
+  #searchInput {
+    position: relative;
+    vertical-align: top;
+    background-color: #fff;
+    width: 310px;
+    height: 40px;
+  }
+
+  #nameOrNumberText {
+    font-size: 26px;
+    color: #fff;
+  }
+  
+  #inputDiv {
+    display: flex
+    flex-direction: column;
+  }
 `;
 
 export const ScrollButtonDiv = styled.div`
@@ -31,12 +49,10 @@ export const ScrollButtonDiv = styled.div`
 `;
 
 export const SurpriseMeButton = styled.a`
-  float: left;
-  margin-right: -100%;
-  width: 85.49%;
-  margin-left: 7.2525%;
-  clear: both;
-  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
   background-color: #30a7d7;
   color: #fff;
   border-radius: 5px;
@@ -47,4 +63,22 @@ export const SurpriseMeButton = styled.a`
   text-align: center;
   text-transform: none;
   font-family: "Flexo-Demi",arial,sans-serif;
+  height: 50px;
+  width: 350px;
+`;
+
+export const SortBy = styled.select`
+  background-color: #313131;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 200px;
+  display: block;
+  font-size: 100%;
+  font-family: "Roboto",arial,sans-serif;
+  line-height: 1.5;
+  padding: 0.5em 0;
+  text-indent: 0.5em;
+  width: 350px;
+  height: 40px;
 `;

@@ -117,5 +117,5 @@ export const PokeContainer = styled.div`
   flex-wrap: wrap;
   width: 80%;
   justify-content: center;
-  margin: 235px auto 0 auto;
+  margin: 30px auto 0 auto;
 `;

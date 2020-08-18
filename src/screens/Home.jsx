@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { fetchAll } from '../lib/client';
 import PokemonCard from '../components/PokemonCard';
 import { PokeContainer } from '../components/styles';
-import { NavBar, ScrollButtonDiv, SurpriseMeButton } from './styles';
+import { NavBar, ScrollButtonDiv, SortBy, SurpriseMeButton } from './styles';
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
   const [searchedPokemon, setSearchedPokemon] = useState('');
   const [showPokemon, setShowPokemon] = useState([]);
   const [showScroll, setShowScroll] = useState(false);
+
+  const sortByOpts = ['Lowst Number (First)', 'Highest Number (First)', 'A-Z', 'Z-A'];
 
   window.addEventListener('scroll', checkScrollToTop);
 
@@ -69,17 +71,24 @@ function Home() {
   return (
     <div>
       <NavBar>
-        <input
-          onChange={(e) => onKeyUp(e)}
-          value={searchedPokemon}
-          onKeyUp={(e) => onKeyUp(e)}
-          onKeyDown={(e) => onKeyUp(e)}
-        />
+        <div id="inputDiv">
+          <label id="nameOrNumberText">Name or Number</label>
+          <input
+            onChange={(e) => onKeyUp(e)}
+            value={searchedPokemon}
+            onKeyUp={(e) => onKeyUp(e)}
+            onKeyDown={(e) => onKeyUp(e)}
+            id="searchInput"
+          />
+        </div>
       </NavBar>
-      <div>
+      <div id="surpriseButtonDiv">
         <SurpriseMeButton>
           Surprise me!
         </SurpriseMeButton>
+        <SortBy
+          options={sortByOpts}
+        />
       </div>
       <div>{renderCards()}</div>
       <ScrollButtonDiv>
