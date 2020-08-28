@@ -84,6 +84,7 @@ function Home() {
       </NavBar>
       <div id="surpriseButtonDiv">
         <SurpriseMeButton>
+          <img src={require("../images/refresh.png")} alt="" id="refresh"/>
           Surprise me!
         </SurpriseMeButton>
         <SortBy

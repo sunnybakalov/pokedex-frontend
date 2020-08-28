@@ -65,6 +65,12 @@ export const SurpriseMeButton = styled.a`
   font-family: "Flexo-Demi",arial,sans-serif;
   height: 50px;
   width: 350px;
+
+  #refresh {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+  }
 `;
 
 export const SortBy = styled.select`
