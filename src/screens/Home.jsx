@@ -10,8 +10,6 @@ function Home() {
   const [showPokemon, setShowPokemon] = useState([]);
   const [showScroll, setShowScroll] = useState(false);
 
-  const sortByOpts = ['Lowst Number (First)', 'Highest Number (First)', 'A-Z', 'Z-A'];
-
   window.addEventListener('scroll', checkScrollToTop);
 
   useEffect(() => {
@@ -39,6 +37,51 @@ function Home() {
     setShowPokemon(filteredPokemon);
   };
 
+  function randomizePokemon() {
+    for(let i = showPokemon.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [showPokemon[i], showPokemon[j]] = [showPokemon[j], showPokemon[i]];
+    };
+    setShowPokemon(showPokemon);
+  };
+
+  const sortBy = (value) => {
+    switch(value) {
+      case "lowestNumber":
+        console.log("LOWEST", value)
+        let lowestNumber = showPokemon.sort((pokemon1, pokemon2) =>
+          pokemon1.number > pokemon2.number ? 1 : -1
+        );
+        console.log("LOWEST", lowestNumber)
+        setShowPokemon(lowestNumber);
+        break;
+      case "highestNumber":
+        console.log("HIGHEST", value)
+        let highestNumber = showPokemon.sort((pokemon1, pokemon2) =>
+          pokemon1.number < pokemon2.number ? 1 : -1
+        );
+        console.log("HIGHEST", highestNumber)
+        setShowPokemon(highestNumber);
+        break;
+      case "aZ":
+        console.log("AZ", value)
+        let aZ = showPokemon.sort((pokemon1, pokemon2) =>
+          pokemon1.name > pokemon2.name ? 1 : -1
+        );
+        console.log("AZ", aZ)
+        setShowPokemon(aZ);
+        break;
+      case "zA":
+        console.log("ZA", value)
+        let zA = showPokemon.sort((pokemon1, pokemon2) =>
+          pokemon1.name < pokemon2.name ? 1 : -1
+        );
+        console.log("ZA", zA)
+        setShowPokemon(zA);
+        break;
+    }
+  };
+
   function checkScrollToTop() {
     if(!showScroll && window.pageYOffset > 400) {
       setShowScroll(true);
@@ -47,11 +90,11 @@ function Home() {
     };
   };
 
-  const scrollToTop = () =>{
+  function scrollToTop() {
     window.scrollTo({top: 0, behavior: 'smooth'});
- };
+  };
 
-  const renderCards = () => {
+  function renderCards() {
     return (
       <PokeContainer>
         {showPokemon &&
@@ -83,13 +126,36 @@ function Home() {
         </div>
       </NavBar>
       <div id="surpriseButtonDiv">
-        <SurpriseMeButton>
+        <SurpriseMeButton
+          onClick={randomizePokemon}
+        >
           <img src={require("../images/refresh.png")} alt="" id="refresh"/>
           Surprise me!
         </SurpriseMeButton>
         <SortBy
-          options={sortByOpts}
-        />
+          onChange={e => sortBy(e.target.value)}
+        >
+          <option
+            value="lowestNumber"
+          >
+            Lowest Number (First)
+          </option>
+          <option
+            value="highestNumber"
+          >
+            Highest Number (First)
+          </option>
+          <option
+            value="aZ"
+          >
+            A-Z
+          </option>
+          <option
+            value="zA"
+          >
+            Z-A
+          </option>
+        </SortBy>
       </div>
       <div>{renderCards()}</div>
       <ScrollButtonDiv>
