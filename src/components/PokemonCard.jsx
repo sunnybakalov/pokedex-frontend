@@ -28,7 +28,7 @@ const PokemonCard = (props) => {
       <div id="typesDiv">
         {props.types.map(type => {
           // console.log("TYPE", type)
-          // return <Types type={type}>{type}</Types>
+          return <p type={type} id="types">{type}</p>
           return <p id="types" type={type}>{type}</p>
         })}
       </div>

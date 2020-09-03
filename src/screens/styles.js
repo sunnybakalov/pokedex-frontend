@@ -15,6 +15,7 @@ export const NavBar = styled.div`
     background-color: #fff;
     width: 310px;
     height: 40px;
+    margin-top: 5px;
   }
 
   #nameOrNumberText {
@@ -23,8 +24,10 @@ export const NavBar = styled.div`
   }
   
   #inputDiv {
-    display: flex
+    display: flex;
     flex-direction: column;
+    padding-left: 195px;
+    padding-top: 15px;
   }
 `;
 

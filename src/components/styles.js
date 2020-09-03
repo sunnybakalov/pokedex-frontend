@@ -42,8 +42,7 @@ const getColor = (props) => {
   return null;
 };
 
-export const Types = styled.p`
-  margin-top: 0;
+export const Types = styled.span`
   width: 70px;
   border-radius: 3px;
   line-height: 18px;
@@ -52,6 +51,7 @@ export const Types = styled.p`
   text-transform: none;
   font-size: 11px;
   text-align: center;
+  white-space: nowrap;
   ${props => getColor(props)};
 `;
 
@@ -90,6 +90,19 @@ export const ContainerCard = styled.div`
 
   #typesDiv {
     display: inline-flex;
+
+    #types {
+      width: 70px;
+      border-radius: 3px;
+      line-height: 18px;
+      max-width: 110px;
+      margin: 0 1.5625% 0 0;
+      text-transform: none;
+      font-size: 11px;
+      text-align: center;
+      white-space: nowrap;
+      ${props => getColor(props)};
+    }
   }
 
   #types {

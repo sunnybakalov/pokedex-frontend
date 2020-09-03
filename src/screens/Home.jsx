@@ -25,6 +25,10 @@ function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    console.log("show", showPokemon)
+  }, [showPokemon])
+
   function onKeyUp(e) {
     setSearchedPokemon(e.target.value);
     searchPokemon(e.target.value);
@@ -48,44 +52,36 @@ function Home() {
   const sortBy = (value) => {
     switch(value) {
       case "lowestNumber":
-        console.log("LOWEST", value)
         let lowestNumber = showPokemon.sort((pokemon1, pokemon2) =>
           pokemon1.number > pokemon2.number ? 1 : -1
         );
-        console.log("LOWEST", lowestNumber)
         setShowPokemon(lowestNumber);
         break;
       case "highestNumber":
-        console.log("HIGHEST", value)
         let highestNumber = showPokemon.sort((pokemon1, pokemon2) =>
           pokemon1.number < pokemon2.number ? 1 : -1
         );
-        console.log("HIGHEST", highestNumber)
         setShowPokemon(highestNumber);
         break;
       case "aZ":
-        console.log("AZ", value)
         let aZ = showPokemon.sort((pokemon1, pokemon2) =>
           pokemon1.name > pokemon2.name ? 1 : -1
         );
-        console.log("AZ", aZ)
         setShowPokemon(aZ);
         break;
       case "zA":
-        console.log("ZA", value)
         let zA = showPokemon.sort((pokemon1, pokemon2) =>
           pokemon1.name < pokemon2.name ? 1 : -1
         );
-        console.log("ZA", zA)
         setShowPokemon(zA);
         break;
     }
   };
 
   function checkScrollToTop() {
-    if(!showScroll && window.pageYOffset > 400) {
+    if(!showScroll && window.pageYOffset > 300) {
       setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
+    } else if (showScroll && window.pageYOffset <= 300) {
       setShowScroll(false);
     };
   };
@@ -115,7 +111,7 @@ function Home() {
     <div>
       <NavBar>
         <div id="inputDiv">
-          <label id="nameOrNumberText">Name or Number</label>
+          <label id="nameOrNumberText">Search By Name</label>
           <input
             onChange={(e) => onKeyUp(e)}
             value={searchedPokemon}
